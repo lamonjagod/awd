@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kropka zakrywająca kursor</title>
+    <style>
+      /* Styl niestandardowego kursora */
+      .custom-cursor {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 16px; /* Rozmiar kropki */
+        height: 16px;
+        background-color: black; /* Kolor kropki */
+        border-radius: 50%; /* Zaokrąglenie - kropka */
+        pointer-events: none; /* Wyłączenie interakcji */
+        z-index: 10000; /* Nad innymi elementami */
+      }
+
+      /* Dostosowanie treści strony */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 100px;
+      }
+
+      p {
+        text-align: center;
+        margin: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Kropka zakrywająca kursor</h1>
+    <p>Porusz myszką, aby zobaczyć efekt.</p>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Tworzenie niestandardowego kursora
+        const customCursor = document.createElement("div");
+        customCursor.classList.add("custom-cursor");
+        document.body.appendChild(customCursor);
+
+        // Śledzenie ruchu myszy
+        document.addEventListener("mousemove", (e) => {
+          customCursor.style.top = `${e.clientY}px`; // Dokładna pozycja kursora Y
+          customCursor.style.left = `${e.clientX}px`; // Dokładna pozycja kursora X
+        });
+      });
+    </script>
+  </body>
+</html>

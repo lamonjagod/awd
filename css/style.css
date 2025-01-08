@@ -1,75 +1,441 @@
-/* Ogólne style dla całego dokumentu */
+/* Reset stylów */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    margin: 10;
-    padding: 0;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
-    display: grid;
-    grid-template-rows: auto 1fr auto; /* Siatka dla header, main i footer */
-    grid-template-columns: 1fr; /* Kolumna obejmująca całą szerokość */
+  font-family: "Roboto Flex", sans-serif;
 }
 
-/* Styl nagłówka */
+/* Header */
 header {
-    grid-row: 1; /* Pierwszy wiersz - nagłówek */
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    text-align: center;
+  background-color: #1a1a1a;
+  color: white;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Styl nawigacji */
-nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
+/* Navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 3000px;
+  position: relative;
 }
 
-nav ul li {
-    margin: 0 15px;
+/* Hamburger menu */
+.hamburger {
+  position: absolute;
+  left: 20px; /* Odstęp od lewej krawędzi */
+  top: 50%; /* Pozycjonowanie w pionie względem navbaru */
+  transform: translateY(-50%); /* Centrowanie w pionie */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 1100;
 }
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
+.hamburger span {
+  display: block;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
 }
 
-/* Styl głównej części strony */
-main {
-    grid-row: 2; /* Drugi wiersz - główny kontent */
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr; /* Trzy kolumny dla sekcji */
-    gap: 20px;
-    padding: 20px;
-    text-align: center;
+/* Animacja hamburgera po aktywacji */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg);
+  position: relative;
+  top: 8px;
 }
 
-main section {
-    background-color: rgba(255, 255, 255, 0.8); /* Półprzezroczyste tło dla sekcji */
-    padding: 20px;
-    border-radius: 8px;
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
 }
 
-/* Styl dla stopki */
-footer {
-    grid-row: 3; /* Trzeci wiersz - stopka */
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px;
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg);
+  position: relative;
+  top: -8px;
 }
 
-/* Opcjonalny styl dla treści, która znajduje się na środku */
-.content {
-    color: white;
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: Arial, sans-serif;
+/* Logo */
+.logo {
+  font-family: "Gravitas One", sans-serif;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+/* Menu rozwijane */
+.menu-content {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  background-color: rgba(26, 26, 26, 0.8);
+  opacity: 50%;
+  color: white;
+  transform: scaleY(0); /* Startowy stan: złożone menu */
+  transform-origin: top;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0;
+}
+.menu-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-content ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0; /* Odstęp wewnętrzny */
+  width: 100%; /* Szerokość całego menu */
+  position: relative; /* Kontekst dla pseudo-elementu */
+}
+
+.menu-content ul li:not(:last-child)::after {
+  content: ""; /* Tworzy linię */
+  position: absolute;
+  width: 100%;
+  bottom: 0; /* Linia między sekcjami */
+  left: 0; /* Brak marginesu od lewej */
+  right: 0; /* Brak marginesu od prawej */
+  height: 1px; /* Grubość linii */
+  background-color: rgba(255, 255, 255, 0.2); /* Kolor linii */
+}
+
+.menu-content ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.menu-content ul li a:hover {
+  color: #459175;
+}
+
+/* Pokazanie menu */
+.menu-content.active {
+  display: flex;
+  transform: scaleY(1); /* Menu rozwija się */
+  opacity: 1; /* Menu staje się widoczne */
+}
+/* Overlay (półprzezroczysta warstwa) */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Półprzezroczysta warstwa */
+  z-index: 999; /* Nad treścią, ale pod menu */
+  display: none; /* Domyślnie ukryta */
+}
+
+/* Pokazanie warstwy */
+.overlay.active {
+  display: block;
+}
+
+.parent {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 kolumn */
+  grid-template-rows: repeat(
+    15,
+    20vh
+  ); /* 20 wierszy dla dwóch zestawów zdjęć */
+  gap: 0; /* Brak odstępów */
+  width: 100vw;
+  height: auto; /* Wysokość automatyczna */
+  margin-top: 60px; /* Zostaw miejsce na header */
+}
+
+.parent img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+
+  /* Efekt czarno-biały */
+  filter: grayscale(100%);
+  transition: filter 0.3s ease-in-out;
+}
+
+.parent img:hover {
+  filter: grayscale(0%);
+}
+
+/* Pierwsza sekcja */
+.div1 {
+  grid-area: 1 / 1 / 3 / 3;
+} /* 2x2 */
+.div2 {
+  grid-area: 1 / 3 / 3 / 4;
+}
+.div3 {
+  grid-area: 1 / 4 / 3 / 6;
+} /* 2x2 */
+.div4 {
+  grid-area: 3 / 1 / 6 / 3;
+} /* 3x2 */
+.div5 {
+  grid-area: 3 / 4 / 5 / 5;
+}
+.div6 {
+  grid-area: 3 / 5 / 6 / 6;
+} /* 3x1 */
+.div7 {
+  grid-area: 3 / 3 / 6 / 4;
+}
+.div8 {
+  grid-area: 6 / 1 / 8 / 2;
+}
+.div9 {
+  grid-area: 6 / 2 / 8 / 4;
+} /* 2x2 */
+.div10 {
+  grid-area: 5 / 4 / 6 / 5;
+}
+.div11 {
+  grid-area: 6 / 5 / 8 / 6;
+} /* 2 wiersze */
+.div12 {
+  grid-area: 8 / 1 / 10 / 3;
+  align: end;
+}
+.div13 {
+  grid-area: 8 / 3 / 10 / 4;
+}
+.div14 {
+  grid-area: 8 / 4 / 10 / 6;
+} /* 2x2 */
+.div15 {
+  grid-area: 14 / 3 / 16/ 3;
+}
+
+/* Druga sekcja (nowe zdjęcia) */
+.div16 {
+  grid-area: 10/ 1 / 13 / 3;
+} /* 2x2 */
+.div17 {
+  grid-area: 10 / 3 / 13 / 4;
+}
+.div18 {
+  grid-area: 10 / 4 / 13 / 6;
+} /* 2x2 */
+.div19 {
+  grid-area: 10 / 1 / 16/ 3;
+} /* 3x2 */
+.div20 {
+  grid-area: 13/ 4 / 16 / 5;
+}
+.div21 {
+  grid-area: 13 / 5 / 16 / 6;
+} /* 3x1 */
+/* Nowe divy na tekst */
+
+.divText3 {
+  grid-area: 6 / 4 / 8 / 5; /* Kolumna 4, wiersze 6-8 */
+}
+
+.divText5 {
+  grid-area: 13 / 3 / 14 / 4; /* Kolumna 5, wiersze 16-20 */
+}
+
+.divText3 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Gravitas One", sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  color: black;
+  background-color: white;
+  text-align: center;
+  height: 100%; /* Dopasowanie do wysokości kontenera */
+  width: 100%; /* Dopasowanie do szerokości kontenera */
+  overflow: hidden; /* Ukrycie nadmiarowego tekstu */
+  transition: all 0.3s ease; /* Płynna zmiana stylu */
+}
+
+.divText4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  font-size: 1rem;
+  text-align: center;
+  transform: rotate(-90deg); /* Obrót tekstu */
+  transform-origin: center; /* Obrót względem środka elementu */
+  height: 100%; /* Dopasowanie wysokości do siatki */
+  width: 100%; /* Dopasowanie szerokości do siatki */
+  white-space: wrap; /* Zapobiega zawijaniu tekstu */
+  overflow: hidden;
+}
+
+.divText5 {
+  font-family: "Gravitas One";
+  font-size: 3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #000;
+  background-color: #ffffff;
+  padding: 20px;
+  line-height: 1.2;
+  overflow: hidden; /* Ukrycie nadmiarowego tekstu */
+  word-break: break-word;
+  text-align: center;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.divText5:hover {
+  background-color: #39aa9d;
+}
+
+/* Kursor niestandardowy */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  font-size: 35px;
+  color: rgb(205, 0, 0);
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%); /* Dokładne centrowanie */
+}
+/* Ukrycie kursora na całej stronie */
+body,
+html,
+a,
+button,
+input,
+textarea {
+  cursor: none;
+}
+/* Overlay (ciemna półprzezroczysta warstwa w tle) */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Półprzezroczysty czarny */
+  display: none; /* Domyślnie ukryte */
+  z-index: 999; /* Nad innymi elementami */
+}
+
+/* Okno modalne */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px; /* Kwadratowe okno */
+  background-color: rgb(27, 27, 27);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Delikatny cień */
+  display: none; /* Domyślnie ukryte */
+  z-index: 1000; /* Nad overlayem */
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden; /* Ukrycie nadmiaru zawartości */
+}
+
+/* Obraz w oknie modalnym */
+.modal img {
+  width: 70%; /* Zmniejsz szerokość do 70% modalnego okna */
+  max-width: 200px; /* Maksymalna szerokość obrazu */
+  height: auto; /* Zachowanie proporcji obrazu */
+  aspect-ratio: 2 / 2; /* Proporcja obrazu */
+  object-fit: cover; /* Zachowanie proporcji przy kadrowaniu */
+  margin: 0 auto; /* Wyśrodkowanie obrazu */
+  display: block;
+  /* Efekt czarno-biały */
+  filter: grayscale(100%);
+  transition: filter 0.3s ease-in-out;
+}
+
+.modal img :hover {
+  filter: grayscale(0%);
+}
+/* Przycisk zamknięcia */
+.modal-close {
+  position: absolute;
+  top: 10px; /* Odległość od górnej krawędzi okna */
+  right: 10px; /* Odległość od prawej krawędzi okna */
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #333; /* Domyślny kolor */
+  transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+  color: red; /* Kolor po najechaniu */
+}
+
+/* Tekst w oknie modalnym */
+.modal p {
+  font-size: 1.2rem;
+  color: #ececec;
+  margin-top: 10px;
+}
+/* Stylizacja stopki */
+.footer {
+  background-color: #1a1a1a;
+  color: rgb(170, 170, 170);
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-text {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 15px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: rgb(170, 170, 170);
+  font-size: 1rem;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer-links a:hover {
+  color: #459175; /* Kolor po najechaniu */
 }

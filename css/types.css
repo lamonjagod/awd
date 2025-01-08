@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'OCRA';
+    src: url('./assets/fonts/OCRA.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'OCR-B';
+    src: url('./assets/fonts/OCR-B.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+h2 {font-family: 'OCRA'; }
+p {font-family: 'OCR-B';}
