@@ -1,102 +1,110 @@
 <style>
+  .header-container {
+    background-color: #ffffeb;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    font: 20px Archivo, sans-serif;
+    padding: 30px 0;
+  }
+
+  .header-content {
+    align-self: center;
+    display: flex;
+    width: 100%;
+    max-width: 1323px;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    color: #000;
+    font-weight: 400;
+  }
+
+  .logo {
+    aspect-ratio: 5.75;
+    object-fit: contain;
+    object-position: center;
+    width: 201px;
+    align-self: stretch;
+    max-width: 100%;
+  }
+
+  .nav-item {
+    align-self: stretch;
+    margin: auto 0;
+  }
+
+  .language-selector {
+    color: #473335;
+    font-weight: 700;
+    align-self: start;
+  }
+
+  .hero-image {
+    aspect-ratio: 1.96;
+    object-fit: contain;
+    object-position: center;
+    width: 100%;
+    margin: 27px 0 0;
+  }
+
+  @media (max-width: 991px) {
     .header-container {
-      background-color: #ffffeb;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      font: 20px Archivo, sans-serif;
-      padding: 30px 0;
+      max-width: 100%;
+      padding-bottom: 100px;
     }
-    
+
     .header-content {
-      align-self: center;
-      display: flex;
-      width: 100%;
-      max-width: 1323px;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: space-between;
-    }
-    
-    .nav-menu {
-      display: flex;
-      align-items: center;
-      gap: 40px;
-      color: #000;
-      font-weight: 400;
-    }
-    
-    .logo {
-      aspect-ratio: 5.75;
-      object-fit: contain;
-      object-position: center;
-      width: 201px;
-      align-self: stretch;
       max-width: 100%;
     }
-    
-    .nav-item {
-      align-self: stretch;
-      margin: auto 0;
+
+    .nav-menu {
+      max-width: 100%;
     }
-    
-    .language-selector {
-      color: #473335;
-      font-weight: 700;
-      align-self: start;
-    }
-    
+
     .hero-image {
-      aspect-ratio: 1.96;
-      object-fit: contain;
-      object-position: center;
-      width: 100%;
-      margin: 27px 0 0;
+      max-width: 100%;
+      margin-bottom: 10px;
     }
-    
-    @media (max-width: 991px) {
-      .header-container {
-        max-width: 100%;
-        padding-bottom: 100px;
-      }
-    
-      .header-content {
-        max-width: 100%;
-      }
-    
-      .nav-menu {
-        max-width: 100%;
-      }
-    
-      .hero-image {
-        max-width: 100%;
-        margin-bottom: 10px;
-      }
-    }
-    
-    .visually-hidden {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
-    }
-    </style>
-    
-    <header class="header-container">
-      <div class="header-content">
-        <nav class="nav-menu">
-          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/30d3c71695f0c7a3a95862619acb3bf39d60d72014c1a11881549175a88b24ac?placeholderIfAbsent=true&apiKey=f39ad2a934f746d7adf5e9c504943c47" alt="Company logo" class="logo" />
-          <a href="#about" class="nav-item">about us</a>
-          <a href="#collections" class="nav-item">collections</a>
-          <a href="#artists" class="nav-item">artists</a>
-          <a href="#tickets" class="nav-item">tickets</a>
-        </nav>
-        <button class="language-selector" aria-label="Change language">EN</button>
-      </div>
-      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/b5bb050d727fc8a1f6c6045fff5fb424ea67c5f7140586f588336f71ee63b522?placeholderIfAbsent=true&apiKey=f39ad2a934f746d7adf5e9c504943c47" alt="Hero image showcasing art collection" class="hero-image" />
-    </header>
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>
+
+<header class="header-container">
+  <div class="header-content">
+    <nav class="nav-menu">
+      <img
+        src="https://cdn.builder.io/api/v1/image/assets/TEMP/30d3c71695f0c7a3a95862619acb3bf39d60d72014c1a11881549175a88b24ac?placeholderIfAbsent=true&apiKey=f39ad2a934f746d7adf5e9c504943c47"
+        alt="Company logo"
+        class="logo"
+      />
+      <a href="#about" class="nav-item">about us</a>
+      <a href="#collections" class="nav-item">collections</a>
+      <a href="#artists" class="nav-item">artists</a>
+      <a href="#tickets" class="nav-item">tickets</a>
+    </nav>
+    <button class="language-selector" aria-label="Change language">EN</button>
+  </div>
+  <img
+    src="https://cdn.builder.io/api/v1/image/assets/TEMP/b5bb050d727fc8a1f6c6045fff5fb424ea67c5f7140586f588336f71ee63b522?placeholderIfAbsent=true&apiKey=f39ad2a934f746d7adf5e9c504943c47"
+    alt="Hero image showcasing art collection"
+    class="hero-image"
+  />
+</header>
