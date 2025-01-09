@@ -1,0 +1,32 @@
+# Node.js (jeśli używasz npm)
+node_modules/
+
+# Systemowe pliki tymczasowe
+.DS_Store
+Thumbs.db
+
+# Logi
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# MacOS
+.DS_Store
+
+# Kompilowane CSS (jeśli używasz SCSS/SASS)
+*.sass-cache/
+*.css.map
+
+# IDE/Editor pliki
+.idea/
+.vscode/
+*.swp
+
+# Build pliki (jeśli używasz webpacka/parcel)
+dist/
+build/
+
+# Environment variables
+.env
