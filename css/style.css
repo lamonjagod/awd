@@ -439,34 +439,3 @@ textarea {
 .footer-links a:hover {
   color: #459175; /* Kolor po najechaniu */
 }
-/* Responsywność dla tabletów */
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-  }
-  .menu-content ul {
-    flex-direction: column;
-  }
-  .parent {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .modal {
-    width: 90%;
-  }
-}
-
-/* Responsywność dla telefonów */
-@media (max-width: 480px) {
-  body {
-    font-size: 14px;
-  }
-  .navbar {
-    flex-direction: column;
-  }
-  .menu-content ul {
-    text-align: center;
-  }
-  .parent {
-    grid-template-columns: repeat(1, 1fr);
-  }
-}
