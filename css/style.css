@@ -441,9 +441,8 @@ textarea {
   color: #459175; /* Kolor po najechaniu */
 }
 
-
 @media (max-width: 768px) {
-  .divText3 p {
+  .divText3 {
     transform: rotate(90deg); /* Obrót tekstu o 90 stopni */
     transform-origin: center center; /* Obrót wokół środka tekstu */
     white-space: nowrap; /* Zapobiega zawijaniu tekstu */
