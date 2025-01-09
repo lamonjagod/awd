@@ -446,6 +446,5 @@ textarea {
     transform: rotate(90deg); /* Obrót tekstu o 90 stopni */
     transform-origin: center center; /* Obrót wokół środka tekstu */
     white-space: nowrap; /* Zapobiega zawijaniu tekstu */
-    z-index: 500;
   }
 }
