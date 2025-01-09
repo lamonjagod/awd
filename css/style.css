@@ -302,7 +302,7 @@ header {
   font-size: 3rem;
   font-weight: bold;
   text-transform: uppercase;
-  transform: rotate(90);
+
   color: #000;
   background-color: #ffffff;
   padding: 20px;
@@ -439,4 +439,12 @@ textarea {
 
 .footer-links a:hover {
   color: #459175; /* Kolor po najechaniu */
+}
+@media (max-width: 768px) {
+  .divText5 {
+    transform: rotate(90deg); /* Obrót o 90 stopni */
+    width: 100%; /* Dopasowanie szerokości do kontenera */
+    height: auto; /* Zmiana wysokości dla obróconego tekstu */
+    padding: 10px; /* Dopasowanie paddingu */
+  }
 }
