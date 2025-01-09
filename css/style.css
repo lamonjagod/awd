@@ -439,3 +439,59 @@ textarea {
 .footer-links a:hover {
   color: #459175; /* Kolor po najechaniu */
 }
+
+@media (max-width: 768px) {
+  .parent {
+    grid-template-columns: repeat(3, 1fr); /* 3 kolumny */
+    grid-template-rows: auto; /* Wiersze automatyczne */
+  }
+
+  .parent img {
+    width: 100%;
+    height: auto; /* Zachowanie proporcji */
+    object-fit: cover;
+  }
+}
+@media (max-width: 480px) {
+  .parent {
+    grid-template-columns: repeat(2, 1fr); /* 2 kolumny */
+    grid-template-rows: auto; /* Wiersze automatyczne */
+  }
+
+  .parent img {
+    width: 100%;
+    height: auto; /* Zachowanie proporcji */
+    object-fit: cover;
+  }
+}
+@media (max-width: 768px) {
+  header {
+    height: 50px; /* Zmniejszenie wysokości nagłówka */
+  }
+
+  .logo {
+    font-size: 1.2rem; /* Mniejsze logo */
+  }
+
+  .hamburger {
+    width: 20px;
+    height: 15px;
+  }
+
+  .hamburger span {
+    height: 2px; /* Cieńsze linie hamburgera */
+  }
+}
+@media (max-width: 768px) {
+  .footer {
+    padding: 10px 0;
+  }
+
+  .footer-text {
+    font-size: 0.8rem;
+  }
+
+  .footer-links a {
+    font-size: 0.9rem;
+  }
+}
