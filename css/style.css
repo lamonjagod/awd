@@ -302,6 +302,7 @@ header {
   font-size: 3rem;
   font-weight: bold;
   text-transform: uppercase;
+  transform: rotate(90);
   color: #000;
   background-color: #ffffff;
   padding: 20px;
