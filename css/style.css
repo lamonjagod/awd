@@ -317,3 +317,28 @@ header {
     max-width: 200px; /* Maksymalna szerokość obrazu */
   }
 }
+/* Podstawowa stylizacja */
+body {
+  background-color: lightblue; /* Duże ekrany */
+}
+
+/* Dla ekranów mniejszych niż 1200px */
+@media (max-width: 1200px) {
+  body {
+    background-color: lightgreen;
+  }
+}
+
+/* Dla ekranów mniejszych niż 768px */
+@media (max-width: 768px) {
+  body {
+    background-color: lightcoral;
+  }
+}
+
+/* Dla ekranów mniejszych niż 480px */
+@media (max-width: 480px) {
+  body {
+    background-color: lightyellow;
+  }
+}
