@@ -265,17 +265,15 @@ header {
 }
 
 /* Media Queries */
+@media (max-width: 1200px) {
+  .parent {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
   .parent {
     grid-template-columns: repeat(3, 1fr);
-  }
-
-  header {
-    height: 50px;
-  }
-
-  .logo {
-    font-size: 1.2rem;
   }
 
   .hamburger {
@@ -285,6 +283,10 @@ header {
 
   .hamburger span {
     height: 2px;
+  }
+
+  .logo {
+    font-size: 1.2rem;
   }
 }
 
