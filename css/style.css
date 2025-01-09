@@ -440,10 +440,7 @@ textarea {
 .footer-links a:hover {
   color: #459175; /* Kolor po najechaniu */
 }
-.divText3 p {
-  transform: rotate(0); /* Domyślnie bez obrotu */
-  transition: transform 0.3s ease;
-}
+
 
 @media (max-width: 768px) {
   .divText3 p {
