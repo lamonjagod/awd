@@ -439,3 +439,140 @@ textarea {
 .footer-links a:hover {
   color: #459175; /* Kolor po najechaniu */
 }
+/* ==================================
+   PODSTAWOWE STYLE (MOBILE-FIRST)
+   ================================== */
+body {
+  font-size: 14px;
+  line-height: 1.5;
+  background-color: #f0f0f0;
+}
+
+.navbar {
+  flex-direction: column;
+}
+
+.menu-content ul {
+  flex-direction: column;
+}
+
+.parent {
+  grid-template-columns: repeat(2, 1fr); /* Siatka dla telefonów: 2 kolumny */
+  gap: 10px;
+}
+
+.divText3,
+.divText5 {
+  font-size: 1rem;
+  padding: 10px;
+}
+
+.modal {
+  width: 90%;
+  max-width: 400px;
+  height: auto;
+}
+
+/* ==================================
+     STYLE DLA TABLETÓW (768px+)
+     ================================== */
+@media (min-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .menu-content ul {
+    flex-direction: row;
+  }
+
+  .parent {
+    grid-template-columns: repeat(3, 1fr); /* Siatka dla tabletów: 3 kolumny */
+    gap: 20px;
+  }
+
+  .divText3,
+  .divText5 {
+    font-size: 1.5rem;
+    padding: 20px;
+  }
+
+  .modal {
+    width: 70%;
+    max-width: 600px;
+  }
+}
+
+/* ==================================
+     STYLE DLA LAPTOPÓW (1024px+)
+     ================================== */
+@media (min-width: 1024px) {
+  body {
+    font-size: 18px;
+  }
+
+  .parent {
+    grid-template-columns: repeat(4, 1fr); /* Siatka dla laptopów: 4 kolumny */
+    gap: 30px;
+  }
+
+  .navbar {
+    padding: 0 20px;
+  }
+
+  .menu-content ul li {
+    margin: 0 10px;
+  }
+
+  .divText3,
+  .divText5 {
+    font-size: 2rem;
+    padding: 30px;
+  }
+
+  .modal {
+    width: 50%;
+    max-width: 800px;
+  }
+}
+
+/* ==================================
+     STYLE DLA DUŻYCH MONITORÓW (1440px+)
+     ================================== */
+@media (min-width: 1440px) {
+  body {
+    font-size: 20px;
+  }
+
+  .parent {
+    grid-template-columns: repeat(
+      5,
+      1fr
+    ); /* Siatka dla dużych monitorów: 5 kolumn */
+    gap: 40px;
+  }
+
+  .navbar {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .menu-content ul li {
+    margin: 0 15px;
+  }
+
+  .divText3,
+  .divText5 {
+    font-size: 2.5rem;
+    padding: 40px;
+  }
+
+  .modal {
+    width: 40%;
+    max-width: 1000px;
+  }
+}
