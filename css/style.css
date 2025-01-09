@@ -442,14 +442,13 @@ textarea {
 /* Responsywność dla tabletów */
 @media (max-width: 768px) {
   .navbar {
-    padding: 0 15px;
+    flex-direction: column;
   }
   .menu-content ul {
     flex-direction: column;
   }
   .parent {
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
   }
   .modal {
     width: 90%;
