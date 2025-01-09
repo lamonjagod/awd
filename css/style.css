@@ -440,26 +440,16 @@ textarea {
 .footer-links a:hover {
   color: #459175; /* Kolor po najechaniu */
 }
-@media (max-width: 768px) {
-  .divText3 {
-    display: flex; /* Umożliwia wyśrodkowanie tekstu */
-    align-items: center;
-    justify-content: center;
-    font-family: "Gravitas One", sans-serif;
-    font-size: 2rem;
-    font-weight: bold;
-    color: black;
-    background-color: white;
-    text-align: center;
-    height: 100%; /* Kontener dopasowany do wysokości */
-    width: 100%; /* Kontener dopasowany do szerokości */
-    overflow: hidden; /* Ukrycie nadmiarowego tekstu */
-    transition: all 0.3s ease; /* Płynna zmiana stylu */
-  }
+.divText3 p {
+  transform: rotate(0); /* Domyślnie bez obrotu */
+  transition: transform 0.3s ease;
+}
 
+@media (max-width: 768px) {
   .divText3 p {
     transform: rotate(90deg); /* Obrót tekstu o 90 stopni */
-    transform-origin: center center; /* Punkt obrotu w centrum */
+    transform-origin: center center; /* Obrót wokół środka tekstu */
     white-space: nowrap; /* Zapobiega zawijaniu tekstu */
+    z-index: 500;
   }
 }
