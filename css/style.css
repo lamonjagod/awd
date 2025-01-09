@@ -38,9 +38,9 @@ header {
 /* Hamburger menu */
 .hamburger {
   position: absolute;
-  left: 20px; /* Odstęp od lewej krawędzi */
-  top: 50%; /* Pozycjonowanie w pionie względem navbaru */
-  transform: translateY(-50%); /* Centrowanie w pionie */
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -88,9 +88,7 @@ header {
   left: 0;
   width: 100%;
   background-color: rgba(26, 26, 26, 0.8);
-  opacity: 50%;
-  color: white;
-  transform: scaleY(0); /* Startowy stan: złożone menu */
+  transform: scaleY(0);
   transform-origin: top;
   transition: transform 0.3s ease, opacity 0.3s ease;
   opacity: 0;
@@ -110,20 +108,20 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px 0; /* Odstęp wewnętrzny */
-  width: 100%; /* Szerokość całego menu */
-  position: relative; /* Kontekst dla pseudo-elementu */
+  padding: 10px 0;
+  width: 100%;
+  position: relative;
 }
 
 .menu-content ul li:not(:last-child)::after {
-  content: ""; /* Tworzy linię */
+  content: "";
   position: absolute;
   width: 100%;
-  bottom: 0; /* Linia między sekcjami */
-  left: 0; /* Brak marginesu od lewej */
-  right: 0; /* Brak marginesu od prawej */
-  height: 1px; /* Grubość linii */
-  background-color: rgba(255, 255, 255, 0.2); /* Kolor linii */
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .menu-content ul li a {
@@ -140,9 +138,10 @@ header {
 /* Pokazanie menu */
 .menu-content.active {
   display: flex;
-  transform: scaleY(1); /* Menu rozwija się */
-  opacity: 1; /* Menu staje się widoczne */
+  transform: scaleY(1);
+  opacity: 1;
 }
+
 /* Overlay (półprzezroczysta warstwa) */
 .overlay {
   position: fixed;
@@ -150,27 +149,24 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Półprzezroczysta warstwa */
-  z-index: 999; /* Nad treścią, ale pod menu */
-  display: none; /* Domyślnie ukryta */
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: none;
 }
 
-/* Pokazanie warstwy */
 .overlay.active {
   display: block;
 }
 
+/* Siatka zdjęć */
 .parent {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* 5 kolumn */
-  grid-template-rows: repeat(
-    15,
-    20vh
-  ); /* 20 wierszy dla dwóch zestawów zdjęć */
-  gap: 0; /* Brak odstępów */
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(15, 20vh);
+  gap: 0;
   width: 100vw;
-  height: auto; /* Wysokość automatyczna */
-  margin-top: 60px; /* Zostaw miejsce na header */
+  height: auto;
+  margin-top: 60px;
 }
 
 .parent img {
@@ -178,8 +174,6 @@ header {
   height: 100%;
   object-fit: cover;
   display: block;
-
-  /* Efekt czarno-biały */
   filter: grayscale(100%);
   transition: filter 0.3s ease-in-out;
 }
@@ -188,81 +182,13 @@ header {
   filter: grayscale(0%);
 }
 
-/* Pierwsza sekcja */
-.div1 {
-  grid-area: 1 / 1 / 3 / 3;
-} /* 2x2 */
-.div2 {
-  grid-area: 1 / 3 / 3 / 4;
-}
-.div3 {
-  grid-area: 1 / 4 / 3 / 6;
-} /* 2x2 */
-.div4 {
-  grid-area: 3 / 1 / 6 / 3;
-} /* 3x2 */
-.div5 {
-  grid-area: 3 / 4 / 5 / 5;
-}
-.div6 {
-  grid-area: 3 / 5 / 6 / 6;
-} /* 3x1 */
-.div7 {
-  grid-area: 3 / 3 / 6 / 4;
-}
-.div8 {
-  grid-area: 6 / 1 / 8 / 2;
-}
-.div9 {
-  grid-area: 6 / 2 / 8 / 4;
-} /* 2x2 */
-.div10 {
-  grid-area: 5 / 4 / 6 / 5;
-}
-.div11 {
-  grid-area: 6 / 5 / 8 / 6;
-} /* 2 wiersze */
-.div12 {
-  grid-area: 8 / 1 / 10 / 3;
-  align: end;
-}
-.div13 {
-  grid-area: 8 / 3 / 10 / 4;
-}
-.div14 {
-  grid-area: 8 / 4 / 10 / 6;
-} /* 2x2 */
-.div15 {
-  grid-area: 14 / 3 / 16/ 3;
-}
-
-/* Druga sekcja (nowe zdjęcia) */
-.div16 {
-  grid-area: 10/ 1 / 13 / 3;
-} /* 2x2 */
-.div17 {
-  grid-area: 10 / 3 / 13 / 4;
-}
-.div18 {
-  grid-area: 10 / 4 / 13 / 6;
-} /* 2x2 */
-.div19 {
-  grid-area: 10 / 1 / 16/ 3;
-} /* 3x2 */
-.div20 {
-  grid-area: 13/ 4 / 16 / 5;
-}
-.div21 {
-  grid-area: 13 / 5 / 16 / 6;
-} /* 3x1 */
 /* Nowe divy na tekst */
-
 .divText3 {
-  grid-area: 6 / 4 / 8 / 5; /* Kolumna 4, wiersze 6-8 */
+  grid-area: 6 / 4 / 8 / 5;
 }
 
 .divText5 {
-  grid-area: 13 / 3 / 14 / 4; /* Kolumna 5, wiersze 16-20 */
+  grid-area: 13 / 3 / 14 / 4;
 }
 
 .divText3 {
@@ -276,25 +202,10 @@ header {
   color: black;
   background-color: white;
   text-align: center;
-  height: 100%; /* Dopasowanie do wysokości kontenera */
-  width: 100%; /* Dopasowanie do szerokości kontenera */
-  overflow: hidden; /* Ukrycie nadmiarowego tekstu */
-  transition: all 0.3s ease; /* Płynna zmiana stylu */
-}
-
-.divText4 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: black;
-  font-size: 1rem;
-  text-align: center;
-  transform: rotate(-90deg); /* Obrót tekstu */
-  transform-origin: center; /* Obrót względem środka elementu */
-  height: 100%; /* Dopasowanie wysokości do siatki */
-  width: 100%; /* Dopasowanie szerokości do siatki */
-  white-space: wrap; /* Zapobiega zawijaniu tekstu */
+  height: 100%;
+  width: 100%;
   overflow: hidden;
+  transition: all 0.3s ease;
 }
 
 .divText5 {
@@ -306,7 +217,7 @@ header {
   background-color: #ffffff;
   padding: 20px;
   line-height: 1.2;
-  overflow: hidden; /* Ukrycie nadmiarowego tekstu */
+  overflow: hidden;
   word-break: break-word;
   text-align: center;
   transition: background-color 0.3s ease-in-out;
@@ -316,94 +227,7 @@ header {
   background-color: #39aa9d;
 }
 
-/* Kursor niestandardowy */
-.custom-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  font-size: 35px;
-  color: rgb(205, 0, 0);
-  pointer-events: none;
-  z-index: 10000;
-  transform: translate(-50%, -50%); /* Dokładne centrowanie */
-}
-/* Ukrycie kursora na całej stronie */
-body,
-html,
-a,
-button,
-input,
-textarea {
-  cursor: none;
-}
-/* Overlay (ciemna półprzezroczysta warstwa w tle) */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Półprzezroczysty czarny */
-  display: none; /* Domyślnie ukryte */
-  z-index: 999; /* Nad innymi elementami */
-}
-
-/* Okno modalne */
-.modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 500px; /* Kwadratowe okno */
-  background-color: rgb(27, 27, 27);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Delikatny cień */
-  display: none; /* Domyślnie ukryte */
-  z-index: 1000; /* Nad overlayem */
-  text-align: center;
-  padding: 20px;
-  box-sizing: border-box;
-  overflow: hidden; /* Ukrycie nadmiaru zawartości */
-}
-
-/* Obraz w oknie modalnym */
-.modal img {
-  width: 70%; /* Zmniejsz szerokość do 70% modalnego okna */
-  max-width: 200px; /* Maksymalna szerokość obrazu */
-  height: auto; /* Zachowanie proporcji obrazu */
-  aspect-ratio: 2 / 2; /* Proporcja obrazu */
-  object-fit: cover; /* Zachowanie proporcji przy kadrowaniu */
-  margin: 0 auto; /* Wyśrodkowanie obrazu */
-  display: block;
-  /* Efekt czarno-biały */
-  filter: grayscale(100%);
-  transition: filter 0.3s ease-in-out;
-}
-
-.modal img :hover {
-  filter: grayscale(0%);
-}
-/* Przycisk zamknięcia */
-.modal-close {
-  position: absolute;
-  top: 10px; /* Odległość od górnej krawędzi okna */
-  right: 10px; /* Odległość od prawej krawędzi okna */
-  cursor: pointer;
-  font-size: 1.5rem;
-  color: #333; /* Domyślny kolor */
-  transition: color 0.3s ease;
-}
-
-.modal-close:hover {
-  color: red; /* Kolor po najechaniu */
-}
-
-/* Tekst w oknie modalnym */
-.modal p {
-  font-size: 1.2rem;
-  color: #ececec;
-  margin-top: 10px;
-}
-/* Stylizacja stopki */
+/* Footer */
 .footer {
   background-color: #1a1a1a;
   color: rgb(170, 170, 170);
@@ -437,40 +261,21 @@ textarea {
 }
 
 .footer-links a:hover {
-  color: #459175; /* Kolor po najechaniu */
+  color: #459175;
 }
 
+/* Media Queries */
 @media (max-width: 768px) {
   .parent {
-    grid-template-columns: repeat(3, 1fr); /* 3 kolumny */
-    grid-template-rows: auto; /* Wiersze automatyczne */
+    grid-template-columns: repeat(3, 1fr);
   }
 
-  .parent img {
-    width: 100%;
-    height: auto; /* Zachowanie proporcji */
-    object-fit: cover;
-  }
-}
-@media (max-width: 480px) {
-  .parent {
-    grid-template-columns: repeat(2, 1fr); /* 2 kolumny */
-    grid-template-rows: auto; /* Wiersze automatyczne */
-  }
-
-  .parent img {
-    width: 100%;
-    height: auto; /* Zachowanie proporcji */
-    object-fit: cover;
-  }
-}
-@media (max-width: 768px) {
   header {
-    height: 50px; /* Zmniejszenie wysokości nagłówka */
+    height: 50px;
   }
 
   .logo {
-    font-size: 1.2rem; /* Mniejsze logo */
+    font-size: 1.2rem;
   }
 
   .hamburger {
@@ -479,12 +284,13 @@ textarea {
   }
 
   .hamburger span {
-    height: 2px; /* Cieńsze linie hamburgera */
+    height: 2px;
   }
 }
-@media (max-width: 768px) {
-  .footer {
-    padding: 10px 0;
+
+@media (max-width: 480px) {
+  .parent {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .footer-text {
