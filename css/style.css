@@ -442,9 +442,11 @@ textarea {
 }
 @media (max-width: 768px) {
   .divText3 {
-    transform: rotate(90deg); /* Obrót o 90 stopni */
-    width: 100%; /* Dopasowanie szerokości do kontenera */
-    height: auto; /* Zmiana wysokości dla obróconego tekstu */
-    padding: 10px; /* Dopasowanie paddingu */
+    transform: rotate(90deg); /* Obrót tekstu o 90 stopni */
+    transform-origin: top left; /* Ustawienie punktu obrotu w lewym górnym rogu */
+    width: auto; /* Automatyczna szerokość dostosowana do tekstu */
+    height: auto; /* Dopasowanie wysokości do obróconego tekstu */
+    padding: 10px; /* Dostosowanie paddingu do nowego rozmiaru */
+    white-space: nowrap; /* Zapobiega zawijaniu tekstu */
   }
-
+}
