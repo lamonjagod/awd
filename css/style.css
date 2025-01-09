@@ -264,42 +264,56 @@ header {
   color: #459175;
 }
 
-/* Media Queries */
+/* Dla ekranów o szerokości poniżej 1200px */
 @media (max-width: 1200px) {
-  .parent {
-    grid-template-columns: repeat(4, 1fr);
+  .divText3,
+  .divText5 {
+    font-size: 1.8rem; /* Zmniejszenie rozmiaru tekstu */
+  }
+
+  .modal {
+    width: 70%; /* Zmniejszenie szerokości okna modalnego */
+    max-width: 400px; /* Maksymalna szerokość */
+  }
+
+  .modal img {
+    width: 60%; /* Dopasowanie szerokości obrazu w modalnym oknie */
+    max-width: 200px; /* Maksymalna szerokość obrazu */
   }
 }
 
+/* Dla ekranów o szerokości poniżej 768px */
 @media (max-width: 768px) {
-  .parent {
-    grid-template-columns: repeat(3, 1fr);
+  .divText3,
+  .divText5 {
+    font-size: 1.5rem; /* Jeszcze mniejszy tekst */
   }
 
-  .hamburger {
-    width: 20px;
-    height: 15px;
+  .modal {
+    width: 80%; /* Jeszcze mniejsza szerokość okna modalnego */
+    max-width: 300px; /* Maksymalna szerokość */
   }
 
-  .hamburger span {
-    height: 2px;
-  }
-
-  .logo {
-    font-size: 1.2rem;
+  .modal img {
+    width: 50%; /* Dopasowanie szerokości obrazu w modalnym oknie */
+    max-width: 150px; /* Maksymalna szerokość obrazu */
   }
 }
 
+/* Dla ekranów o szerokości poniżej 480px */
 @media (max-width: 480px) {
-  .parent {
-    grid-template-columns: repeat(2, 1fr);
+  .divText3,
+  .divText5 {
+    font-size: 1.2rem; /* Najmniejszy rozmiar tekstu */
   }
 
-  .footer-text {
-    font-size: 0.8rem;
+  .modal {
+    width: 90%; /* Minimalna szerokość okna modalnego */
+    max-width: 250px; /* Maksymalna szerokość */
   }
 
-  .footer-links a {
-    font-size: 0.9rem;
+  .modal img {
+    width: 80%; /* Dopasowanie szerokości obrazu w modalnym oknie */
+    max-width: 200px; /* Maksymalna szerokość obrazu */
   }
 }
